@@ -19,6 +19,10 @@ db_config = {
 def home():
     return 'Hello There!'
 
+
+@app.route('/message')
+def home():
+    return 'This is the message page'
 # Route to handle saving quotes
 @app.route('/api/save_quote', methods=['POST'])
 def save_quote():
