@@ -53,15 +53,12 @@ def save_quote():
 @app.route('/api/quotes', methods=['GET'])
 def get_quote():
     try:
-        print("Attempting to connect to the database...")
         with db.connect() as conn:
-            print("Connection successful!")
             result = conn.execute(sqlalchemy.text('SELECT quote FROM quotes'))
             quotes = [row['quote'] for row in result]
-            print("Fetched Quotes:", quotes)
         return jsonify(quotes), 200
-    except Exception as e:
-        print("Error during database operation:", e)
+    except Exception as err:
+        print(f"Error fetching quotes: {err}")
         return jsonify({'error': 'Failed to retrieve quotes'}), 500
 
 
