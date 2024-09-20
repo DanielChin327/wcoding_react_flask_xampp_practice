@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import ShowQuotes from './components/ShowQuotes'
+
 
 function App() {
   const [personName, setPersonName] = useState('');
@@ -35,8 +37,20 @@ function App() {
       />
       <button onClick={handleSave}>Save Quote</button>
       <p>{message}</p>
+
+
+      <ShowQuotes></ShowQuotes>
+
+
+
+
     </div>
   );
+
+
+
+
+
 }
 
 export default App;
