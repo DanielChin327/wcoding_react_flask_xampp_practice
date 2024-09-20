@@ -35,6 +35,9 @@ def add_quote_route():
     else:
         return jsonify({'error': 'Failed to add quote'}), 500
 
+
+
+
 def get_quotes():
     try:
         with db.connect() as conn:
