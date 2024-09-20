@@ -41,8 +41,13 @@ def add_quote_route():
 def get_quotes():
     try:
         with db.connect() as conn:
-            result = conn.execute(sqlalchemy.text('SELECT person_name, quote FROM quotes'))
-            quotes = [{"person_name": row['person_name'], "quote": row['quote']} for row in result]
+            result = conn.execute(sqlalchemy.text('SELECT * FROM quotes'))
+            quotes = []
+            for row in result:
+                quotes.append({
+                'person_name':row[1],
+                'quote':row[2]
+                })
         return quotes
     except Exception as err:
         print(f"Error fetching quotes: {err}")
