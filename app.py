@@ -55,7 +55,7 @@ def get_quotes():
             quotes = []
             for row in result:       # Iterate over the result set
                 quotes.append({
-                    'id': row[0],
+                    'quotes_id': row[0],
                     'person_name': row[1],  # Extract 'person_name' from the row (assuming it's the second column)
                     'quote': row[2]         # Extract 'quote' from the row (assuming it's the third column)
                 })
@@ -82,9 +82,9 @@ def delete_quote(quote_id):
     try:
         with db.connect() as conn:
             delete_query = sqlalchemy.text(
-                "DELETE FROM quotes WHERE id = :quote_id"
+                "DELETE FROM quotes WHERE id = :quotes_id"
             )
-            result = conn.execute(delete_query, {"quote_id": quote_id})
+            result = conn.execute(delete_query, {"quotes_id": quote_id})
             conn.commit()
 
             if result.rowcount > 0:
