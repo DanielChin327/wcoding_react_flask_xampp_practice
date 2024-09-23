@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import ShowQuotes from './components/ShowQuotes'
-
+import './App.css'
 
 function App() {
   const [personName, setPersonName] = useState('');
@@ -10,8 +10,7 @@ function App() {
 
   const handleSave = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/save_quote', {
-
+      const response = await axios.post('http://localhost:5000/api/quote', {
         person_name: personName,
         quote: quote
       });

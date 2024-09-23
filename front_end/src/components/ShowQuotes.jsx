@@ -25,8 +25,8 @@ return (
   <table className="quotes-table">
                 <thead>
                     <tr>
-                        <th className="quotes-header">Username</th>
-                        <th className="quotes-header">Comment</th>
+                        <th className="quotes-header">Person</th>
+                        <th className="quotes-header">Quote</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,10 +39,6 @@ return (
                 </tbody>
             </table>
   </>
-
-
-
-
 
 
 )
