@@ -31,7 +31,8 @@
 
 /* Style the table cells */
 .quotes-personName,
-.quotes-quote {
+.quotes-quote,
+.quotes-actions {         /* Added .quotes-actions */
   padding: 12px;
   border-bottom: 1px solid #555; /* Subtle border between rows */
   vertical-align: top;
@@ -40,13 +41,35 @@
 
 /* Style for the person name column */
 .quotes-personName {
-  width: 30%;
+  width: 25%;             /* Adjusted width to accommodate the Actions column */
   font-weight: bold;
 }
 
 /* Style for the quote column */
 .quotes-quote {
-  width: 70%;
+  width: 55%;             /* Adjusted width to accommodate the Actions column */
+}
+
+/* Style for the actions column */
+.quotes-actions {
+  width: 20%;             /* Width for the Actions column */
+  text-align: center;     /* Center the delete button */
+}
+
+/* Style the delete button */
+.quotes-actions button {
+  padding: 8px 16px;
+  background-color: #e74c3c; /* Red color for the delete button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;        /* Font size for the button text */
+}
+
+/* Hover effect for the delete button */
+.quotes-actions button:hover {
+  background-color: #c0392b; /* Darker red on hover */
 }
 
 /* Optional: Add some spacing and styling to the container */

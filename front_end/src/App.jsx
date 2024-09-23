@@ -35,7 +35,7 @@ function App() {
         value={quote}
         onChange={(e) => setQuote(e.target.value)}
       />
-      <button onClick={handleSave}>Save Quote</button>
+      <button className="submit-button" onClick={handleSave}>Save Quote</button>
       <p>{message}</p>
 
 

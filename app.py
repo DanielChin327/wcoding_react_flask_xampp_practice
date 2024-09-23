@@ -48,6 +48,34 @@ def delete_quote_route(quote_id):
     else:
         return jsonify({'error': "Failed to delete"}), 500  # Return error message with HTTP status 500 Internal Server Error
 
+
+@app.route('/api/quote/<int:quote_id>', methods=['PUT'])
+def update_quote_route(quote_id):
+    data = request.get_json()
+    person_name = data.get('person_name')
+    quote_text = data.get('quote')
+    if update_quote(quote_id, person_name, quote_text):
+        return jsonify({'message': 'Quote successfully updated'}), 200
+    else:
+        return jsonify({'error': 'Failed to update quote'}), 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Function to fetch all quotes from the database
 def get_quotes():
     try:
@@ -97,6 +125,26 @@ def delete_quote(quote_id):
     except Exception as err:
         print(f"Error deleting quote: {err}")  # Print any exceptions that occur
         return False  # Indicate failure
+
+
+def update_quote(quote_id, person_name, quote_text):
+    try:
+        with db.connect() as conn:
+            update_quote = sqlalchemy.text ("UPDATE quotes SET person_name = :person_name, quote = :quote WHERE quotes_id = :quote_id"
+        )
+        result = conn.execute(update_quote,{
+            "person_name": person_name,
+            "quote": quote_text,
+            "quotes_id": quote_id
+        })
+        conn.commit()
+        return result.rowcount > 0
+    except Exception as err:
+        print(f"Error on updating quote: {err}")
+        return False
+
+
+
 
 # Run the Flask app in debug mode (useful for development)
 if __name__ == '__main__':

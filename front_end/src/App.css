@@ -34,7 +34,7 @@
 }
 
 /* Style the button */
-.App button {
+.submit-button {
   width: 20%;             /* Match the width of the input fields */
   max-width: 500px;
   padding: 10px;
@@ -47,7 +47,7 @@
 }
 
 /* Add hover effect to the button */
-.App button:hover {
+.submit-button:hover {
   background-color: #0056b3; /* Darken the button on hover */
 }
 
