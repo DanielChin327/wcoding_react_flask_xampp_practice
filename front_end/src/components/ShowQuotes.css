@@ -1,80 +1,66 @@
-/* ShowQuotes.css */
+/* Existing styles remain the same */
 
-/* Style the table */
-.quotes-table {
-  width: 80%;             /* Set the table width to 80% */
-  margin: 20px auto;      /* Center the table horizontally */
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  background-color: #2c2c2c; /* Dark background for the table */
-  color: #f0f0f0;             /* Light text color for contrast */
+/* Style the input and textarea in the table */
+.quotes-personName input,
+.quotes-quote textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Style the table headers */
-.quotes-header {
-  background-color: #444; /* Slightly lighter than the table background */
-  color: #ffffff;         /* White text for headers */
-  text-align: left;
-  padding: 12px;
-  border-bottom: 2px solid #555; /* Dark border for separation */
-  font-size: 26px;
-}
-
-/* Style the table rows */
-.quotes-row:nth-child(even) {
-  background-color: #333; /* Alternate row color */
-}
-
-.quotes-row:hover {
-  background-color: #3d3d3d; /* Highlight row on hover */
-}
-
-/* Style the table cells */
-.quotes-personName,
-.quotes-quote,
-.quotes-actions {         /* Added .quotes-actions */
-  padding: 12px;
-  border-bottom: 1px solid #555; /* Subtle border between rows */
-  vertical-align: top;
-  color: #e0e0e0;                /* Slightly lighter text color */
-}
-
-/* Style for the person name column */
-.quotes-personName {
-  width: 25%;             /* Adjusted width to accommodate the Actions column */
-  font-weight: bold;
-}
-
-/* Style for the quote column */
-.quotes-quote {
-  width: 55%;             /* Adjusted width to accommodate the Actions column */
-}
-
-/* Style for the actions column */
-.quotes-actions {
-  width: 20%;             /* Width for the Actions column */
-  text-align: center;     /* Center the delete button */
-}
-
-/* Style the delete button */
+/* Style the action buttons */
 .quotes-actions button {
-  padding: 8px 16px;
-  background-color: #e74c3c; /* Red color for the delete button */
+  margin-right: 5px;
+}
+
+/* Style the edit button */
+.quotes-actions .edit-button {
+  padding: 6px 12px;
+  background-color: #f0ad4e; /* Orange color */
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;        /* Font size for the button text */
+  font-size: 14px;
 }
 
-/* Hover effect for the delete button */
-.quotes-actions button:hover {
-  background-color: #c0392b; /* Darker red on hover */
+.quotes-actions .edit-button:hover {
+  background-color: #ec971f; /* Darker orange on hover */
 }
 
-/* Optional: Add some spacing and styling to the container */
-.quotes-container {
-  padding: 20px;
-  background-color: #1e1e1e; /* Dark background for the container */
-  border-radius: 8px;
+/* Style the save button */
+.quotes-actions .save-button {
+  padding: 6px 12px;
+  background-color: #5cb85c; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.quotes-actions .save-button:hover {
+  background-color: #4cae4c; /* Darker green on hover */
+}
+
+/* Style the cancel button */
+.quotes-actions .cancel-button {
+  padding: 6px 12px;
+  background-color: #d9534f; /* Red color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.quotes-actions .cancel-button:hover {
+  background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Adjust spacing for action buttons */
+.quotes-actions button {
+  margin: 2px;
 }
