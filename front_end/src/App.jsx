@@ -46,6 +46,7 @@ function App() {
       {/* Heading of the application */}
       <h1>Save Famous Quotes</h1>
 
+
       {/* Input field for the person's name */}
       <input
         type="text"                            // Specifies that this is a text input field
@@ -71,6 +72,8 @@ function App() {
 
       {/* Component to display the list of quotes */}
       <ShowQuotes refresh={refreshQuotes} />   {/* Passes refreshQuotes state as a prop to ShowQuotes */}
+
+
     </div>
   );
 }
