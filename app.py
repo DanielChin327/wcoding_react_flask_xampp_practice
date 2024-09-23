@@ -36,6 +36,18 @@ def add_quote_route():
     else:
         return jsonify({'error': 'Failed to add quote'}), 500  # Return an error message with HTTP status 500 Internal Server Error
 
+
+@app.route('/api/quote/<int:quote_id>', methods = ['DELETE'])
+def delete_quote_route(quote_id):
+    if delete_quote(quote_id):
+        return jsonify({'message': 'Quote successfully deleted'}),200
+    else:
+        return jsonify({'error': "Failed to delete"}),500
+
+
+
+
+
 def get_quotes():
     try:
         with db.connect() as conn:  # Establish a connection to the database
@@ -43,6 +55,7 @@ def get_quotes():
             quotes = []
             for row in result:       # Iterate over the result set
                 quotes.append({
+                    'id': row[0],
                     'person_name': row[1],  # Extract 'person_name' from the row (assuming it's the second column)
                     'quote': row[2]         # Extract 'quote' from the row (assuming it's the third column)
                 })
@@ -63,6 +76,25 @@ def add_quote(person_name, quote_text):
     except Exception as err:
         print(f"Error adding quote: {err}")  # Print any exceptions that occur during the database operation
         return False  # Return False to indicate failure
+
+
+def delete_quote(quote_id):
+    try:
+        with db.connect() as conn:
+            delete_query = sqlalchemy.text(
+                "DELETE FROM quotes WHERE id = :quote_id"
+            )
+            result = conn.execute(delete_query, {"quote_id": quote_id})
+            conn.commit()
+
+            if result.rowcount > 0:
+                return True  # Deletion was successful
+            else:
+                return False  # No rows affected; quote_id may not exist
+    except Exception as err:
+        print(f"Error deleting quote: {err}")
+        return False  # Indicate failure
+
 
 if __name__ == '__main__':
     app.run(debug=True)  # Run the Flask app in debug mode (useful for development)
