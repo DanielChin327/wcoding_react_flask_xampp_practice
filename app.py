@@ -130,21 +130,19 @@ def delete_quote(quote_id):
 def update_quote(quote_id, person_name, quote_text):
     try:
         with db.connect() as conn:
-            update_quote = sqlalchemy.text ("UPDATE quotes SET person_name = :person_name, quote = :quote WHERE quotes_id = :quote_id"
-        )
-        result = conn.execute(update_quote,{
-            "person_name": person_name,
-            "quote": quote_text,
-            "quotes_id": quote_id
-        })
-        conn.commit()
-        return result.rowcount > 0
+            update_query = sqlalchemy.text(
+                "UPDATE quotes SET person_name = :person_name, quote = :quote WHERE quotes_id = :quotes_id"
+            )
+            result = conn.execute(update_query, {
+                "person_name": person_name,
+                "quote": quote_text,
+                "quotes_id": quote_id
+            })
+            conn.commit()
+            return result.rowcount > 0
     except Exception as err:
         print(f"Error on updating quote: {err}")
         return False
-
-
-
 
 # Run the Flask app in debug mode (useful for development)
 if __name__ == '__main__':
